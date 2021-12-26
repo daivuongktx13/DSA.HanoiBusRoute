@@ -1,10 +1,24 @@
 #include <stdio.h>
+#include <string.h>
 //stdalign.h Mô ra đây biết
 #include "../JVAL_JRB/jrb.h"
 #include "../QandS/Stack/stack.h"
 #define INFINITIVE_VALUE 10000000
 
+typedef struct{
+    double weight;
+    int routeID[20];
+    int size;
+}Road;
+
+Road* initRoad(){
+    Road* road=(Road*) malloc(sizeof(Road));
+    road->weight=0.0;
+    road->size=0;
+    return road;
+}
 #include "../QandS/Queue/pqueue.h"
+
 typedef struct Vertex_DT{
     int vertex;
     int distance;
@@ -70,7 +84,7 @@ void addVertex(Graph graph,int id, char *name){
         printf("Vertex exist!\n");
         return;
     }
-    Jval id_jval=new_jval_s(strdup(name));
+    Jval id_jval=new_jval_s(name);
     jrb_insert_int(graph.vertexes,id,id_jval);
 }
 char* getVertex(Graph graph, int id){
@@ -81,7 +95,7 @@ char* getVertex(Graph graph, int id){
     }
     return node->val.s;
 }
-void addEdge(Graph graph,int id1,int id2,double weight){
+void addEdge(Graph graph,int id1,int id2,Road* road){
     JRB node1 = jrb_find_int(graph.vertexes,id1);
     if(node1==NULL){
         printf("Vertex 1 does not exist!\n");
@@ -96,20 +110,22 @@ void addEdge(Graph graph,int id1,int id2,double weight){
     if(temp==NULL) {
         JRB new_tree=make_jrb();
         jrb_insert_int(graph.edges,id1,new_jval_v(new_tree));
-        jrb_insert_int(new_tree,id2,new_jval_d(weight));
+        jrb_insert_int(new_tree,id2,new_jval_v(road));
     }
     else{
         JRB tree=(JRB) jval_v(temp->val);
-        jrb_insert_int(tree,id2,new_jval_d(weight));
+        jrb_insert_int(tree,id2,new_jval_v(road));
     }
 }
-double getEdgeValue(Graph graph,int v1, int v2){
+Road* getEdgeValue(Graph graph,int v1, int v2){
     JRB v1Node=jrb_find_int(graph.edges,v1);
-    if(v1Node==NULL) return INFINITIVE_VALUE;
+    //if(v1Node==NULL) return INFINITIVE_VALUE;
+    if(v1Node==NULL) return NULL;
     JRB tree=(JRB) jval_v(v1Node->val);
     JRB v2Node=jrb_find_int(tree,v2);
-    if(v2Node==NULL) return INFINITIVE_VALUE;
-    return jval_d(v2Node->val);
+    //if(v2Node==NULL) return INFINITIVE_VALUE;
+    if(v2Node==NULL) return NULL;
+    return (Road*)jval_v(v2Node->val);
 }
 int indegree(Graph graph,int v,int* output){
     JRB temp;
@@ -183,8 +199,8 @@ double shortestPath(Graph graph, int s, int t, int* path, int*length){
         for(i=0;i<count;i++){
             int v=output[i];
             if(isVisited[v]==1) continue;
-            if(arrayOfVertex[v].distance > (arrayOfVertex[u].distance+getEdgeValue(graph,u,v))){
-                arrayOfVertex[v].distance=arrayOfVertex[u].distance+getEdgeValue(graph,u,v);
+            if(arrayOfVertex[v].distance > (arrayOfVertex[u].distance+getEdgeValue(graph,u,v)->weight)){
+                arrayOfVertex[v].distance=arrayOfVertex[u].distance+getEdgeValue(graph,u,v)->weight;
                 arrayOfVertex[v].parent=u;
             }
             pqueue_change_priority(pq,arrayOfVertex[v].distance,&ns[v]);

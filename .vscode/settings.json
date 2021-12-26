@@ -4,6 +4,8 @@
         "stdalign.h": "c",
         "pqueue.h": "c",
         "directedgraph.h": "c",
-        "stack.h": "c"
+        "stack.h": "c",
+        "stdio.h": "c",
+        "reader.h": "c"
     }
 }
