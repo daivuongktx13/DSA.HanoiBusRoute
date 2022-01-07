@@ -7,5 +7,6 @@
         "stack.h": "c",
         "stdio.h": "c",
         "reader.h": "c"
-    }
+    },
+    "files.encoding": "utf8"
 }

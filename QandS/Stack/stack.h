@@ -1,5 +1,9 @@
 #include <stdlib.h>
-typedef int element;
+#include <string.h>
+
+typedef struct{
+    char s[15];
+}element;
 
 typedef struct stacknode_t{
     element data;
@@ -10,8 +14,9 @@ typedef struct stack_t{
     struct stacknode_t *top;
 }Stack;
 
-element makeData(int n){
-    element elec=n;
+element makeData(char* i){
+    element elec;
+    strcpy(elec.s,i);
     return elec;
 }
 void initializeStack(Stack* stack){
@@ -40,7 +45,9 @@ int push(element elec,Stack* stack){
 element pop(Stack* stack){
     if(isEmptyStack(stack)){
         printf("Stack is empty!\n");
-        return -9999;
+        element elec;
+        strcpy(elec.s,"-1");
+        return elec;
     }
     StackNode* node=stack->top;
     (stack->top)=(stack->top)->next;
