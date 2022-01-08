@@ -1,5 +1,5 @@
 #include "state_ults.h"
-
+#include <ctype.h>
 JRB line=NULL;
 Graph graph;
 JRB busStop=NULL;
@@ -10,6 +10,14 @@ double getDistance(MinRoad* minRoad,int index1,int index2){
     distance+=minRoad[i].weight;
   }
   return distance;
+}
+char* tolowerString(char* src){
+  char* str2=strdup(src);
+  int i;
+  for(i=0;i<strlen(str2);i++){
+    str2[i]=tolower(str2[i]);
+  }
+  return str2;
 }
 char* getMinimumTour(Graph graph,JRB line,char* src,char* des){
     char minRoute[5000];
@@ -24,6 +32,11 @@ char* getMinimumTour(Graph graph,JRB line,char* src,char* des){
     double distance;
     clock_t start=clock();
     distance=shortestPath(graph,src,des,out,&size);
+    if(distance==INFINITIVE_VALUE) {
+      char minRoute2[500];
+      sprintf(minRoute2,"Không có đường đi giữa <b>%s</b> và <b>%s</b>\nXin quý bạn đi bộ cho!\n",ver1,ver2);
+      return strdup(minRoute2);
+    }
     clock_t end=clock();
     double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("\nTime to find: %.2f seconds\n",time_spent);
@@ -126,8 +139,11 @@ void searchForInfo1(GtkWidget* entry,GtkComboBox* combobox){
   if(graph.vertexes==NULL) {
     graph =  read_graph();
   }
+  char* tempString=tolowerString(text);
   jrb_traverse(temp,graph.vertexes){
-    char* find=strstr(temp->val.s,text);
+    char* findString=tolowerString(temp->val.s);
+    char* find=strstr(findString,tempString);
+    free(findString);
     if(count>25) break;
     if(find!=NULL){
       //Strdup later
@@ -135,6 +151,7 @@ void searchForInfo1(GtkWidget* entry,GtkComboBox* combobox){
       count++;
     }
   }
+  free(tempString);
 }
 void printInfo1(GtkComboBox* combobox,GtkLabel* label){
   gchar* textID=gtk_combo_box_get_active_id(combobox);
@@ -144,15 +161,17 @@ void printInfo1(GtkComboBox* combobox,GtkLabel* label){
   JRB find=jrb_find_str(busStop,textID);
   BusStop* tempBS=(BusStop*)find->val.v;
   char tempS[1000];
-  sprintf(tempS,"Mã số điểm xe buýt: %s\nTên điểm: %sSố tuyến xe đi qua: %d\n",textID,textName,tempBS->size);
+  sprintf(tempS,"Mã số điểm xe buýt: <b>%s</b>\nTên điểm: <b>%s</b>Số tuyến xe đi qua: <b>%d</b>\n",textID,textName,tempBS->size);
   strcat(tempS,"Các tuyến xe đi qua: ");
   int i;
   for(i=0;i<tempBS->size;i++){
+    strcat(tempS,"<b>");
     strcat(tempS,tempBS->routeName[i]);
+    strcat(tempS,"</b>");
     strcat(tempS," ");
   }
   strcat(tempS,"\n");
-  gtk_label_set_text(label,tempS);
+  gtk_label_set_markup(label,tempS);
 }
 
 //
@@ -180,17 +199,21 @@ void searchData2(GtkEntry* entry,GtkComboBox* combobox){
   if(line==NULL) line=read_lineNameANDroute();
   if(graph.vertexes==NULL) graph=read_graph();
   int count=0;
+  char* tempS=tolowerString(text);
   gtk_combo_box_text_remove_all(combobox);
   jrb_traverse(temp,line){
     char tempString[100]="Tuyến ";
     if(count>30) break;
     Route* tempRoute=(Route*) temp->val.v;
-    if(strstr(tempRoute->routeName,text)!=NULL){
+    char* findString=tolowerString(tempRoute->routeName);
+    if(strstr(findString,tempS)!=NULL){
       strcat(tempString,tempRoute->routeName);
       gtk_combo_box_text_append(combobox,strdup(temp->key.s),strdup(tempString));
       count++;
     }
+    free(findString);
   }
+  free(tempS);
 }
 //
 //
@@ -204,16 +227,20 @@ void searchForInfo3(GtkWidget* entry,GtkComboBox* combobox){
   gtk_combo_box_text_remove_all(combobox);
   JRB temp;
   int count=0;
+  char* tempString=tolowerString(text);
   if(graph.vertexes==NULL)  graph=read_graph();
   jrb_traverse(temp,graph.vertexes){
-    char* find=strstr(temp->val.s,text);
+    char* findString=tolowerString(temp->val.s);
+    char* find=strstr(findString,tempString);
     if(count>25) break;
     if(find!=NULL){
       //Strdup later
       gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(combobox),temp->key.s,temp->val.s);
       count++;
     }
+    free(findString);
   }
+  free(tempString);
 }
 
 void srcBoxChange(GtkWidget* box){

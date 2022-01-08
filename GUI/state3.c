@@ -13,6 +13,8 @@ extern void desBoxChange(GtkWidget* box);
 extern void findRoute(GtkWidget* button, GtkWidget* text);
 
 void changeToState3(GtkApplication *app){
+  strcpy(srcID,"");
+  strcpy(desID,"");
   state3 = gtk_application_window_new (app);
   gtk_window_set_default_size(GTK_WINDOW(state3),1200,600);
   GtkWidget* backButton=gtk_button_new_with_label("Back");
