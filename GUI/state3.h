@@ -58,7 +58,6 @@ void changeToState3(GtkApplication *app){
   gtk_widget_set_vexpand(scrollView, TRUE);
   gtk_box_pack_start(GTK_BOX(container),scrollView,TRUE,TRUE,5);
 
-
   GtkWidget* labelInfo=gtk_label_new("Infomation Appear Here\n");
   gtk_container_add(GTK_CONTAINER(scrollView),labelInfo);
 

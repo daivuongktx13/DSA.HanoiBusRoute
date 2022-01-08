@@ -162,7 +162,7 @@ JRB read_busStop_Routes(){
             fscanf(fi1,"%s%*c",c);
             strcpy(newBS[i].routeName[j],c);
         }
-        jrb_insert_int(newtree,strdup(a),new_jval_v(&newBS[i]));
+        jrb_insert_str(newtree,strdup(a),new_jval_v(&newBS[i]));
     }
     printf("Finished Read JRB 2");
     return newtree;

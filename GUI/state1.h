@@ -15,7 +15,9 @@ void searchForInfo(GtkWidget* entry,GtkComboBox* combobox){
   gtk_combo_box_text_remove_all(combobox);
   JRB temp;
   int count=0;
-  if(graph.vertexes==NULL) graph=read_graph();
+  if(graph.vertexes==NULL) {
+    graph=read_graph();
+  }
   jrb_traverse(temp,graph.vertexes){
     char* find=strstr(temp->val.s,text);
     if(count>25) break;
@@ -27,9 +29,22 @@ void searchForInfo(GtkWidget* entry,GtkComboBox* combobox){
   }
 }
 void printInfo1(GtkComboBox* combobox,GtkLabel* label){
-  gchar* text=gtk_combo_box_text_get_active_text(combobox);
-  gtk_label_set_text(label,text);
-  g_free(text);
+  gchar* textID=gtk_combo_box_get_active_id(combobox);
+  gchar* textName=gtk_combo_box_text_get_active_text(combobox);
+  if(textID==NULL||textName==NULL) return;
+  if(busStop==NULL) busStop=read_busStop_Routes();
+  JRB find=jrb_find_str(busStop,textID);
+  BusStop* tempBS=(BusStop*)find->val.v;
+  char tempS[1000];
+  sprintf(tempS,"Mã số điểm xe buýt: %s\nTên điểm: %s Số tuyến xe đi qua: %d\n",textID,textName,tempBS->size);
+  strcat(tempS,"Các tuyến xe đi qua: ");
+  int i;
+  for(i=0;i<tempBS->size;i++){
+    strcat(tempS,tempBS->routeName[i]);
+    strcat(tempS," ");
+  }
+  strcat(tempS,"\n");
+  gtk_label_set_text(label,tempS);
 }
 //In ra các xe buýt đi qua 1 bến
 void changeToState1(GtkApplication *app){
@@ -58,14 +73,15 @@ void changeToState1(GtkApplication *app){
   gtk_box_pack_start(GTK_BOX(container),containerSearch,FALSE,FALSE,0);
   //Combo Box Data
   GtkWidget* comboBox=gtk_combo_box_text_new();
-  gtk_box_pack_start(GTK_BOX(container),comboBox,TRUE,TRUE,5);
+  gtk_box_pack_start(GTK_BOX(container),comboBox,TRUE,TRUE,0);
   g_signal_connect(entryState1,"activate",G_CALLBACK(searchForInfo),comboBox);
   //Scroll view
   GtkWidget *scrollView=gtk_scrolled_window_new(NULL,NULL);
   gtk_widget_set_hexpand(scrollView, TRUE);
   gtk_widget_set_vexpand(scrollView, TRUE);
-  gtk_box_pack_start(GTK_BOX(container),scrollView,TRUE,TRUE,5);
-  GtkWidget* labelInfo=gtk_label_new("Nothing have search");
+  gtk_box_pack_start(GTK_BOX(container),scrollView,TRUE,TRUE,0);
+  GtkWidget* labelInfo=gtk_label_new("Infomation Appear Here");
+  gtk_label_set_xalign(labelInfo,0.05);
   gtk_container_add(GTK_CONTAINER(scrollView),labelInfo);
   g_signal_connect(comboBox,"changed",G_CALLBACK(printInfo1),labelInfo);
   //Show all
