@@ -80,7 +80,9 @@ void getMinimumTour(Graph graph,JRB line,char* src,char* des){
     }while(1);
 }
 
-
+//
+//
+// State 1
 void searchForInfo1(GtkWidget* entry,GtkComboBox* combobox){
   gchar* text=gtk_entry_get_text(entry);
   int i;
@@ -108,7 +110,7 @@ void printInfo1(GtkComboBox* combobox,GtkLabel* label){
   JRB find=jrb_find_str(busStop,textID);
   BusStop* tempBS=(BusStop*)find->val.v;
   char tempS[1000];
-  sprintf(tempS,"Mã số điểm xe buýt: %s\nTên điểm: %s Số tuyến xe đi qua: %d\n",textID,textName,tempBS->size);
+  sprintf(tempS,"Mã số điểm xe buýt: %s\nTên điểm: %sSố tuyến xe đi qua: %d\n",textID,textName,tempBS->size);
   strcat(tempS,"Các tuyến xe đi qua: ");
   int i;
   for(i=0;i<tempBS->size;i++){
@@ -118,4 +120,43 @@ void printInfo1(GtkComboBox* combobox,GtkLabel* label){
   strcat(tempS,"\n");
   gtk_label_set_text(label,tempS);
 }
+
+//
+// Work with JRB line and Graph graph;
+// State 2
+void printdata2(GtkWidget* box,GtkWidget* text){
+  gchar* textID=gtk_combo_box_get_active_id(box);
+  int i;
+  gchar* textName=gtk_combo_box_text_get_active_text(box);
+  if(textID==NULL||textName==NULL) return;
+  char displayText[10000];
+  JRB find=jrb_find_str(line,textID);
+  Route* routeTemp=(Route*)find->val.v;
+  sprintf(displayText,"<b>%s</b> đi qua <b>%d</b> điểm dừng.\n",textName,routeTemp->size);
+  for(i=0;i<routeTemp->size;i++){
+    char* name=getVertex(graph,routeTemp->busStop[i]);
+    strcat(displayText,"\t+ ");
+    strcat(displayText,name);
+  }
+  gtk_label_set_markup(text,displayText);
+}
+void searchData2(GtkEntry* entry,GtkComboBox* combobox){
+  gchar* text=gtk_entry_get_text(entry);
+  JRB temp;
+  if(line==NULL) line=read_lineNameANDroute();
+  if(graph.vertexes==NULL) graph=read_graph();
+  int count=0;
+  gtk_combo_box_text_remove_all(combobox);
+  jrb_traverse(temp,line){
+    char tempString[100]="Tuyến ";
+    if(count>30) break;
+    Route* tempRoute=(Route*) temp->val.v;
+    if(strstr(tempRoute->routeName,text)!=NULL){
+      strcat(tempString,tempRoute->routeName);
+      gtk_combo_box_text_append(combobox,strdup(temp->key.s),strdup(tempString));
+      count++;
+    }
+  }
+}
+  
 

@@ -17,7 +17,8 @@ void searchForInfo1(GtkWidget* entry,GtkComboBox* combobox);
 void printInfo1(GtkComboBox* combobox,GtkLabel* label);
 
 //State2
-
+void printdata2(GtkWidget* box,GtkWidget* text); 
+void searchData2(GtkEntry* entry,GtkComboBox* combobox);
 
 //State3
 
