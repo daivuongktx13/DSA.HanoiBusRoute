@@ -7,4 +7,12 @@ Subject: Data Structure And Algorithms Advanced Lab
 - gtk-3.0
 - jval
 - jrb
+- make (Optional)
+
+### How to compile
+
+#### With `make`
+
+### Without `make`
+
 **HUST**
