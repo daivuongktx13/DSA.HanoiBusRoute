@@ -13,9 +13,9 @@ GtkWidget *state3=NULL;
 
 
 // Lệnh compile nầy
-//Gcc `pkg-config --cflags gtk+-3.0` Main/main.c -o Main/main `pkg-config --libs gtk+-3.0` JVAL_JRB/jrb.c JVAL_JRB/jval.c QandS/Queue/pqueue.c -w
+//Gcc `pkg-config --cflags gtk+-3.0` Main/main.c -o test  JVAL_JRB/jrb.c JVAL_JRB/jval.c QandS/Queue/pqueue.c Reader/reader.c QandS/Stack/stack.c GUI/state.c GUI/state1.c GUI/state2.c GUI/state3.c Graph/DirectedGraph.c Path/state_ults.c `pkg-config --libs gtk+-3.0` -w
 //Lệnh chạy nầy
-// ./Main/main
+// ./test
 
 int main(int argc, char *argv[]){
     GtkApplication *app = gtk_application_new ("com.example.GtkApplication",
