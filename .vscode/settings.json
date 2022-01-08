@@ -11,7 +11,10 @@
         "state1.h": "c",
         "state.h": "c",
         "state3.h": "c",
-        "path_minimizer.h": "c"
+        "path_minimizer.h": "c",
+        "state2.h": "c",
+        "stateutilities.h": "c",
+        "state_ults.h": "c"
     },
     "files.encoding": "utf8"
 }

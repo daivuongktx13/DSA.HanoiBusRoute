@@ -1,19 +1,15 @@
-#include "../Reader/reader.h"
+#include "state_ults.h"
 
-typedef struct{
-    char ver1[15];
-    char ver2[15];
-    char routeName[20][7];
-    int size;
-    double weight;
-}MinRoad;
+JRB line=NULL;
+Graph graph;
+JRB busStop=NULL;
 
-void getMinimumTour(Graph graph,JRB line){
+void getMinimumTour(Graph graph,JRB line,char* src,char* des){
     int i,size;
     output* out=(output*) malloc(sizeof(output));
     double distance;
     clock_t start=clock();
-    distance=shortestPath(graph,"4251886989","738815106",out,&size);
+    distance=shortestPath(graph,src,des,out,&size);
     clock_t end=clock();
     double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("Time to find: %.2f seconds\n",time_spent);
@@ -83,3 +79,43 @@ void getMinimumTour(Graph graph,JRB line){
         }
     }while(1);
 }
+
+
+void searchForInfo1(GtkWidget* entry,GtkComboBox* combobox){
+  gchar* text=gtk_entry_get_text(entry);
+  int i;
+  gtk_combo_box_text_remove_all(combobox);
+  JRB temp;
+  int count=0;
+  if(graph.vertexes==NULL) {
+    graph =  read_graph();
+  }
+  jrb_traverse(temp,graph.vertexes){
+    char* find=strstr(temp->val.s,text);
+    if(count>25) break;
+    if(find!=NULL){
+      //Strdup later
+      gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(combobox),temp->key.s,temp->val.s);
+      count++;
+    }
+  }
+}
+void printInfo1(GtkComboBox* combobox,GtkLabel* label){
+  gchar* textID=gtk_combo_box_get_active_id(combobox);
+  gchar* textName=gtk_combo_box_text_get_active_text(combobox);
+  if(textID==NULL||textName==NULL) return;
+  if(busStop==NULL) busStop=read_busStop_Routes();
+  JRB find=jrb_find_str(busStop,textID);
+  BusStop* tempBS=(BusStop*)find->val.v;
+  char tempS[1000];
+  sprintf(tempS,"Mã số điểm xe buýt: %s\nTên điểm: %s Số tuyến xe đi qua: %d\n",textID,textName,tempBS->size);
+  strcat(tempS,"Các tuyến xe đi qua: ");
+  int i;
+  for(i=0;i<tempBS->size;i++){
+    strcat(tempS,tempBS->routeName[i]);
+    strcat(tempS," ");
+  }
+  strcat(tempS,"\n");
+  gtk_label_set_text(label,tempS);
+}
+

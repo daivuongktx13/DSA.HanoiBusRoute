@@ -21,8 +21,7 @@
             ],
             "compilerPath": "C:\\Program Files (x86)\\Dev-Cpp\\MinGW64\\bin\\gcc.exe",
             "cStandard": "c89",
-            "cppStandard": "gnu++98",
-            "intelliSenseMode": "windows-gcc-x64"
+            "cppStandard": "gnu++98"
         }
     ],
     "version": 4

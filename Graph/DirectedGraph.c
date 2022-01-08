@@ -1,16 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-#include <time.h>
-//stdalign.h Mô ra đây biết
-#include "../JVAL_JRB/jrb.h"
-#include "../QandS/Stack/stack.h"
-#define INFINITIVE_VALUE 10000000
-
-typedef struct{
-    double weight;
-    char routeID[20][15];
-    int size;
-}Road;
+#include "DirectedGraph.h"
 
 Road* initRoad(){
     Road* road=(Road*) malloc(sizeof(Road));
@@ -18,20 +6,6 @@ Road* initRoad(){
     road->size=0;
     return road;
 }
-#include "../QandS/Queue/pqueue.h"
-
-typedef struct Vertex_DT{
-    char vertex[15];
-    double distance;
-    char parent[15];
-}vertex_dt;
-
-typedef struct node_t
-{
-	pqueue_pri_t pri;
-	char vertex[15];
-	size_t pos;
-} node_t;
 
 
 static int
@@ -68,11 +42,7 @@ set_pos(void *a, size_t pos)
 	((node_t *) a)->pos = pos;
 }
 
-typedef struct{
-    JRB vertexes;
-    JRB edges;
-}Graph;
-#define MAX 20
+
 Graph createGraph(){
     Graph graph;
     graph.vertexes=make_jrb();
@@ -125,10 +95,6 @@ Road* getEdgeValue(Graph graph,char* v1, char* v2){
     if(v2Node==NULL) return NULL;
     return (Road*)jval_v(v2Node->val);
 }
-typedef struct{
-    char s[4000][15];
-}output;
-
 int indegree(Graph graph,char* v,output* out){
     JRB temp;
     int count=0;
