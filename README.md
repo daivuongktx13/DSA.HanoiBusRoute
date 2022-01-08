@@ -4,7 +4,7 @@ Mini Project 2: Bus Map and Shortest Path
 Subject: Data Structure And Algorithms Advanced Lab
 
 ## Dataset
-All the dataset is crawled from **OpenStreetMap**, **OpenRouteService** through their API in Pyhon.
+All the dataset is crawled from **OpenStreetMap**, **OpenRouteService** through their **API** in Python.
 
 ## Requirements
 - gtk-3.0
