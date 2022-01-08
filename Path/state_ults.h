@@ -11,7 +11,7 @@ typedef struct{
 }MinRoad;
 
 
-void getMinimumTour(Graph graph,JRB line,char* src,char* des);
+char* getMinimumTour(Graph graph,JRB line,char* src,char* des);
 //State1
 void searchForInfo1(GtkWidget* entry,GtkComboBox* combobox);
 void printInfo1(GtkComboBox* combobox,GtkLabel* label);

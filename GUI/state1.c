@@ -43,7 +43,7 @@ void changeToState1(GtkApplication *app){
   gtk_widget_set_hexpand(scrollView, TRUE);
   gtk_widget_set_vexpand(scrollView, TRUE);
   gtk_box_pack_start(GTK_BOX(container),scrollView,TRUE,TRUE,0);
-  GtkWidget* labelInfo=gtk_label_new("Infomation Appear Here");
+  GtkWidget* labelInfo=gtk_label_new("Here is data ...");
   gtk_label_set_xalign(labelInfo,0.05);
   gtk_container_add(GTK_CONTAINER(scrollView),labelInfo);
   g_signal_connect(comboBox,"changed",G_CALLBACK(printInfo1),labelInfo);
