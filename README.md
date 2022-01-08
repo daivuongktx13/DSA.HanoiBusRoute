@@ -12,7 +12,11 @@ Subject: Data Structure And Algorithms Advanced Lab
 ### How to compile
 
 #### With `make`
+If you have `make`, change current working directory to project by `cd`. And compile:
+```shell
+cd <project_folder>
+make
+```
+These commands will create `test.exe` file in that folder.
+#### Without `make`
 
-### Without `make`
-
-**HUST**
