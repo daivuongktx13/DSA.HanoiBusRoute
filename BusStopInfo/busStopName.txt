@@ -14,7 +14,7 @@
 738813733 Chợ Thượng Đình
 738815870 94 Nguyễn Trãi
 738815717 290 Tây Sơn
-7608990478 Công ty in thương mại & dịch vụ ngân hàng
+7608990478 Công ty in thương mại và dịch vụ ngân hàng
 738813975 109 Phạm Ngọc Thạch
 738813771 101A2 Tập thể Trung Tự
 738814459 120 Đại Cồ Việt
@@ -468,7 +468,7 @@
 8821681977 Qua 130m Doanh trại Bộ chỉ huy quân sự HN
 8821681976 Ngã 4 Phạm Hùng-Khuất Duy Tiến
 738815036 220 Trần Duy Hưng
-738815502 Đối diện Bộ Khoa học & Công nghệ
+738815502 Đối diện Bộ Khoa học và Công nghệ
 8821681978 Tòa nhà Landmark 72 - đường Phạm Hùng
 738813730 ĐH Sư phạm Ngoại ngữ
 8821681979 36A Phạm Văn Đồng
@@ -482,7 +482,7 @@
 8807115926 Khu nhà D6 và D3 - đường nội bộ chung cư Kim Chung
 8807115925 Đối diện cổng Khu công nghiệp Bắc Thăng Long
 8822946796 Đại học Mỏ
-5485731419 Trường Cao đẳng Tài nguyên & Môi trường Hà Nội
+5485731419 Trường Cao đẳng Tài nguyên và Môi trường Hà Nội
 8822946795 Đường vào Công ty Cổ phần Cơ điện Hà Nội
 8347802015 Đối diện Cửa hàng Bão dưỡng sửa chữa xe máy Nam Hải
 8822946794 Đối diện đình làng Liên Ngạc
@@ -835,14 +835,14 @@
 8853934337 Trước ngã 3 Lạc Thị 200m
 8853934338 Qua Chợ Lạc Thị 200m
 8853934336 Đối diện trường THCS Ngọc Hồi
-8853934334 Viện nghiên cứu trồng & phát triển cây thuốc
+8853934334 Viện nghiên cứu trồng và phát triển cây thuốc
 8853934335 Chùa Ngọc Hồi
 1928641076 Gần ngã 3 đường Quỳnh Đô
-8853934333 Qua Công ty CP Vận tải & Dịch vụ TS 15m
+8853934333 Qua Công ty CP Vận tải và Dịch vụ TS 15m
 8853934332 Qua Khu tập thể LICÔLA 100m
 436176914 Đối diện Trụ sở HĐND huyện Thanh Trì
 1927580771 Qua ngã 3 Ngọc Hồi
-738815864 Đối diện TCT cơ điện nông nghiệp & Thủy lợi (Văn Điển)
+738815864 Đối diện TCT cơ điện nông nghiệp và Thủy lợi (Văn Điển)
 738815872 Qua đường vào Bệnh viện đa khoa Thăng Long 60m
 8853934329 Công viên Định Công
 8853934330 Đối diện Chợ xanh Định Công
@@ -868,7 +868,7 @@
 738814358 Đối diện Khu tập thể LICÔLA
 738813839 373 Ngọc Hồi
 1927580770 449 - 451 Ngọc Hồi
-8856174806 TCT cơ điện nông nghiệp & Thủy lợi (Văn Điển)
+8856174806 TCT cơ điện nông nghiệp và Thủy lợi (Văn Điển)
 1927591121 Đối diện 184 Ngọc Hồi
 8856174808 Trạm biến áp số 9 Định Công
 8856174809 Đối diện trạm cấp nước sạch Định Công
@@ -1085,7 +1085,7 @@
 8903312053 Gần cổng làng Phú Đô
 8808907345 Tường rào Trạm y tế Mễ Trì
 8808907344 Nhà hàng Hàn Quốc, nhà CT4 ĐN KĐT Mỹ Đình
-738815788 Đối diện Trường Đại học Lao động & Xã Hội - 48 Trần Duy Hưng
+738815788 Đối diện Trường Đại học Lao động và Xã Hội - 48 Trần Duy Hưng
 738815699 Đối diện Bệnh viện Xanh Pôn
 738815690 Ngã ba Hoàng Diệu-Hoàng Văn Thụ
 8903312052 34-36 Hoàng Diệu
@@ -1098,8 +1098,8 @@
 8808913249 Lối vào THPT Đại Mỗ
 8808913248 Qua ngã ba làng Miêu Nha
 8808913251 Đối diện Tòa nhà BITEXCO
-8808913252 Giữa Tòa nhà CT1-1 & CT1-2 Khu đô thị Mễ Trì Hạ
-8903312065 Đại học Lao động & Xã hội - 43 Trần Duy Hưng
+8808913252 Giữa Tòa nhà CT1-1 và CT1-2 Khu đô thị Mễ Trì Hạ
+8903312065 Đại học Lao động và Xã hội - 43 Trần Duy Hưng
 8903312081 97 Láng Hạ
 8903312082 Qua 70m ngã ba Đặng Tiến Đông-Hoàng Cầu
 738813861 59 Hoàng Cầu
@@ -1167,7 +1167,7 @@
 8919736511 259-261 đường Thạch Bàn
 8919736512 Đối diện Cột điện T4A/2A-B đường Cổ Linh
 8920049626 Cổ Nhuế
-8920049624 Trung tâm Khoa học tự nhiên & Công nghệ Quốc gia
+8920049624 Trung tâm Khoa học tự nhiên và Công nghệ Quốc gia
 8920049622 382-384 Thụy Khuê
 8920049623 528 Thụy Khuê
 8920049621 278 Thụy Khuê
@@ -1218,7 +1218,7 @@
 8925835918 Đối diện nhà D5 (Khu đô thị Đặng Xá)
 8925835919 Đối diện nhà D16 (Khu đô thị Đặng Xá)
 8925835920 Đối diện nhà D10 (Khu đô thị Đặng Xá)
-8925835933 Đối diện công ty Thương mại & dịch vụ Phương Trâm
+8925835933 Đối diện công ty Thương mại và dịch vụ Phương Trâm
 8925835935 Trung tâm y tế Hàng không
 8925835932 Đối diện trường THCS Long Biên
 8925835931 Đối diện ngõ 110 Cổ Linh
@@ -2020,7 +2020,7 @@
 9010673536 Đối diện Xăng dầu Toàn Thắng
 9010673532 Trước Cầu Kìm 50m
 9010673534 Đối diện quầy thuốc số 62
-9010673530 Công ty Đầu tư Thương Mại P&T
+9010673530 Công ty Đầu tư Thương Mại PvàT
 9010637712 Trước đối diện cửa hàng nhựa tiền phong Minh Sáu
 9010637667 Đại lý sữa 379 Minh Nguyệt
 9010637669 Đối diện Công ty Cổ phần An Thinh Group
@@ -2163,7 +2163,7 @@
 9025879849 Đối diện trường THPT Xuân Giang
 9025879850 Gần đối diện UBND xã Xuân Giang
 9025879851 Xóm Đồng May - Thôn Xuân Tảo (chiều đi)
-9025879843 Công ty Đầu tư & Thương mại khoáng sản Sóc Sơn
+9025879843 Công ty Đầu tư và Thương mại khoáng sản Sóc Sơn
 9025879844 Đối diện Công ty CP Đầu tư thương mại và khoáng sản Sóc Sơn
 9025879839 Trạm y tế xã Phù Linh
 9025879840 Trường tiểu học Phù Linh
