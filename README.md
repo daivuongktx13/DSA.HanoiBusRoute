@@ -31,3 +31,24 @@ Just run this command
 ```shell
 ./test
 ```
+### How to delete temporary file .o
+```shell
+make clean
+```
+## (**Bonus**) Set up coding environment VSCode Windows
+Install `gtk-3.0` by `MSYS2` and then add follow code to `.vscode/c_cpp_properties.json` inside `configurations`:
+```shell
+"includePath": [
+                "${workspaceFolder}/**",
+                "C:\\msys64\\mingw64\\include\\gtk-3.0",
+                "C:\\msys64\\mingw64\\include\\glib-2.0",
+                "C:\\msys64\\mingw64\\lib\\glib-2.0\\include",
+                "C:\\msys64\\mingw64\\include\\pango-1.0\\pango",
+                "C:\\msys64\\mingw64\\include\\cairo",
+                "C:\\msys64\\mingw64\\include\\gdk-pixbuf-2.0",
+                "C:\\msys64\\mingw64\\include\\pango-1.0",
+                "C:\\msys64\\mingw64\\include\\harfbuzz",
+                "C:\\msys64\\mingw64\\include\\atk-1.0"
+            ]
+```
+
