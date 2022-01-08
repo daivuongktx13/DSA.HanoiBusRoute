@@ -6,6 +6,8 @@ extern GtkWidget *state2;
 extern GtkWidget *state3;
 extern void on_activate (GtkApplication *app);
 extern char s[3][30];
+extern JRB line;
+extern Graph graph;
 int i;
 
 void printdata(GtkWidget* box,GtkWidget* text){

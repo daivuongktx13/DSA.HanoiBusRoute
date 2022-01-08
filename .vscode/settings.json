@@ -6,7 +6,12 @@
         "directedgraph.h": "c",
         "stack.h": "c",
         "stdio.h": "c",
-        "reader.h": "c"
+        "reader.h": "c",
+        "gtk.h": "c",
+        "state1.h": "c",
+        "state.h": "c",
+        "state3.h": "c",
+        "path_minimizer.h": "c"
     },
     "files.encoding": "utf8"
 }

@@ -60,9 +60,10 @@ JRB read_lineNameANDroute(){
     for(i=0;i<n;i++){
         jrb_insert_str(newtree,routeID[i],new_jval_v(&newroute[i]));
     }     
-    return newtree;
+    printf("Finished Read JRB 1");
     fclose(fi1);
     fclose(fi2);
+    return newtree;
 }
 // Tạo một graph chứa:
 // -Tên các bến
@@ -99,10 +100,9 @@ Graph read_graph(){
     for(i=0;i<n1;i++){
         fscanf(fi1,"%s%*c",a);
         fgets(b,500,fi1);
-        // printf("%s %s",a,b);
         addVertex(newgraph,strdup(a),strdup(b));
     }
-    printf("Finish part1!\n");
+    printf("Finish part 1 Read Graph!\n");
     fscanf(fi2,"%d%*c",&n2);
     for(i=0;i<n2;i++){
         char temp;
@@ -119,7 +119,7 @@ Graph read_graph(){
         temp=fgetc(fi2);
         addEdge(newgraph,strdup(c),strdup(d),road);
     }
-    printf("Finish part2!\n");
+    printf("Finish part 2 Read Graph!\n");
     fscanf(fi3,"%d%*c",&n3);
     for(i=0;i<n3;i++){
         Road *road=initRoad();
@@ -133,7 +133,7 @@ Graph read_graph(){
         Road* tempFind=getEdgeValue(newgraph,c,d);
         if(tempFind==NULL) addEdge(newgraph,strdup(c),strdup(d),road);
     }
-    printf("Finish part3!\n");
+    printf("Finish part 3 Read Graph!\n");
     return newgraph;
 }
 
@@ -158,15 +158,13 @@ JRB read_busStop_Routes(){
         fscanf(fi1,"%s%*c",a);
         fscanf(fi1,"%d%*c",&b);
         newBS[i].size=b;
-        printf("%s %d: ",a,b);
         for(j=0;j<b;j++){
             fscanf(fi1,"%s%*c",c);
             strcpy(newBS[i].routeName[j],c);
-            printf("%s ",c);
         }
-        printf("\n");
         jrb_insert_int(newtree,strdup(a),new_jval_v(&newBS[i]));
     }
+    printf("Finished Read JRB 2");
     return newtree;
 }
 

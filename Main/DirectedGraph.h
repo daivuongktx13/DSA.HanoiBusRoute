@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 //stdalign.h Mô ra đây biết
 #include "../JVAL_JRB/jrb.h"
 #include "../QandS/Stack/stack.h"
@@ -277,3 +278,5 @@ double shortestPath(Graph graph, char* s, char* t, output* path, int*length){
     *length=count2;
     return findVerDT(arrayOfVertex,t)->distance;
 }
+
+

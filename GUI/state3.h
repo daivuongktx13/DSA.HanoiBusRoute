@@ -6,6 +6,9 @@ extern GtkWidget *state2;
 extern GtkWidget *state3;
 extern void on_activate (GtkApplication *app);
 extern char s[3][30];
+extern Graph graph;
+extern JRB line;
+extern void getMinimumTour(Graph graph,JRB line);
 
 //Tìm đường di chuyển ngắn nhất giữa 2 bến xe buýt
 void changeToState3(GtkApplication *app){

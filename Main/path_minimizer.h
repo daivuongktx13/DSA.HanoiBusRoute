@@ -1,10 +1,4 @@
-#include <stdio.h>
 #include "../Reader/reader.h"
-#include <time.h> 
-// Lệnh compile nầy
-// Gcc -o Main/test Main/test.c JVAL_JRB/jrb.c JVAL_JRB/jval.c QandS/Queue/pqueue.c -w
-//Lệnh chạy nầy
-// ./Main/test
 
 typedef struct{
     char ver1[15];
@@ -13,6 +7,7 @@ typedef struct{
     int size;
     double weight;
 }MinRoad;
+
 void getMinimumTour(Graph graph,JRB line){
     int i,size;
     output* out=(output*) malloc(sizeof(output));
@@ -88,12 +83,3 @@ void getMinimumTour(Graph graph,JRB line){
         }
     }while(1);
 }
-int main(){
-    JRB line=read_lineNameANDroute();
-    Graph graph=read_graph();
-    
-    getMinimumTour(graph,line);
-
-    // JRB busStop=read_busStop_Routes();
-}
-

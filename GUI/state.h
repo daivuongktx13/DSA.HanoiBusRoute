@@ -1,5 +1,4 @@
 #include <gtk/gtk.h>
-
 GtkWidget *window=NULL;
 GtkWidget *state1=NULL;
 GtkWidget *state2=NULL;
@@ -12,7 +11,11 @@ extern void changeToState1(GtkApplication *app);
 
 int i;
 
+
+
 void on_activate (GtkApplication *app) {
+  //Init
+
   //Create a new window
   GList* list=gtk_application_get_windows(app);
   GtkWidget* prevWindow=NULL;
@@ -41,4 +44,5 @@ void on_activate (GtkApplication *app) {
     gtk_window_close(GTK_WINDOW(prevWindow));
     gtk_application_remove_window(app,GTK_WINDOW(prevWindow));
   }
+  // printf("App Loading time %.2lf seconds\n",time);
 }

@@ -6,16 +6,23 @@ extern GtkWidget *state2;
 extern GtkWidget *state3;
 extern void on_activate (GtkApplication *app);
 extern char s[3][30];
-
+extern JRB busStop;
+extern Graph graph;
 
 void searchForInfo(GtkWidget* entry,GtkComboBox* combobox){
   gchar* text=gtk_entry_get_text(entry);
   int i;
   gtk_combo_box_text_remove_all(combobox);
-  for(i=0;i<3;i++){
-    char* find=strstr(s[i],text);
-    if(find!=NULL) {
-      gtk_combo_box_text_append_text(GTK_COMBO_BOX_TEXT(combobox),s[i]);
+  JRB temp;
+  int count=0;
+  if(graph.vertexes==NULL) graph=read_graph();
+  jrb_traverse(temp,graph.vertexes){
+    char* find=strstr(temp->val.s,text);
+    if(count>25) break;
+    if(find!=NULL){
+      //Strdup later
+      gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(combobox),temp->key.s,temp->val.s);
+      count++;
     }
   }
 }
