@@ -9,6 +9,8 @@ Subject: Data Structure And Algorithms Advanced Lab
 - jrb
 - make (Optional)
 
+## Compile & Run
+
 ### How to compile
 
 #### With `make`
