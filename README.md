@@ -8,6 +8,7 @@ All the dataset is crawled from **OpenStreetMap**, **OpenRouteService** through 
 
 ## Requirements
 - gtk-3.0
+- pqueue (Volkan Yazıcı- 2014)
 - jval
 - jrb
 - make (Optional)
