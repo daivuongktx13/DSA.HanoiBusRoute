@@ -1,6 +1,7 @@
 #include "reader.h"
-
+#include <time.h>
 JRB read_lineNameANDroute(){
+    clock_t start=clock();
     FILE* fi1=fopen(lineName,"r");
     FILE* fi2=fopen(route,"r");
     if(fi1==NULL){
@@ -42,14 +43,18 @@ JRB read_lineNameANDroute(){
     for(i=0;i<n;i++){
         jrb_insert_str(newtree,routeID[i],new_jval_v(&newroute[i]));
     }     
-    printf("Finished Read JRB 1");
+    printf("Finished Read JRB 1\n");
     fclose(fi1);
     fclose(fi2);
+    clock_t end=clock();
+    double time=(double)(end-start)/CLOCKS_PER_SEC;
+    printf("Time need to read JRB 1: %lf seconds\n",time);
     return newtree;
 }
 
 
 Graph read_graph(){
+    clock_t start=clock();
     setlocale(LC_ALL, "en_US.UTF-8");
     FILE* fi1=fopen(busStopName,"r");
     if(fi1==NULL){
@@ -111,10 +116,14 @@ Graph read_graph(){
         if(tempFind==NULL) addEdge(newgraph,strdup(c),strdup(d),road);
     }
     printf("Finish part 3 Read Graph!\n");
+    clock_t end=clock();
+    double time=(double)(end-start)/CLOCKS_PER_SEC;
+    printf("Time need to read Graph: %.2lf seconds\n",time);
     return newgraph;
 }
 
 JRB read_busStop_Routes(){
+    clock_t start=clock();
     FILE* fi1=fopen(busStop_Routes,"r");
     JRB newtree=make_jrb();
     int n,b,i,j;
@@ -133,6 +142,9 @@ JRB read_busStop_Routes(){
         }
         jrb_insert_str(newtree,strdup(a),new_jval_v(&newBS[i]));
     }
-    printf("Finished Read JRB 2");
+    printf("Finished Read JRB 2\n");
+    clock_t end=clock();
+    double time=(double)(end-start)/CLOCKS_PER_SEC;
+    printf("Time need to read JRB 2: %.2lf seconds\n",time);
     return newtree;
 }

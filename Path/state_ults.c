@@ -37,9 +37,6 @@ char* getMinimumTour(Graph graph,JRB line,char* src,char* des){
       sprintf(minRoute2,"Không có đường đi giữa <b>%s</b> và <b>%s</b>\nXin quý bạn đi bộ cho!\n",ver1,ver2);
       return strdup(minRoute2);
     }
-    clock_t end=clock();
-    double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("\nTime to find: %.2f seconds\n",time_spent);
     printf("Shortest time: %lf minutes\n",distance/60);
     sprintf(tempConcat,"Thời gian: <b>%.1lf</b> phút\n",distance/60);
     strcat(minRoute,tempConcat);
@@ -124,13 +121,18 @@ char* getMinimumTour(Graph graph,JRB line,char* src,char* des){
             currentIndex++;
         }
     }while(1);
+    clock_t end=clock();
+    double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("Time to find: %.2f seconds\n",time_spent);
+    sprintf(tempConcat,"Execution time: <b>%.2lf</b> seconds",time_spent);
+    strcat(minRoute,tempConcat);
     return strdup(minRoute);
 }
-
 //
 //
 // State 1
 void searchForInfo1(GtkWidget* entry,GtkComboBox* combobox){
+  clock_t start=clock();
   gchar* text=gtk_entry_get_text(entry);
   int i;
   gtk_combo_box_text_remove_all(combobox);
@@ -152,8 +154,11 @@ void searchForInfo1(GtkWidget* entry,GtkComboBox* combobox){
     }
   }
   free(tempString);
+  clock_t end=clock();
+  printf("Search in State1 %lf seconds",(double)(end-start)/CLOCKS_PER_SEC);
 }
 void printInfo1(GtkComboBox* combobox,GtkLabel* label){
+  clock_t start=clock();
   gchar* textID=gtk_combo_box_get_active_id(combobox);
   gchar* textName=gtk_combo_box_text_get_active_text(combobox);
   if(textID==NULL||textName==NULL) return;
@@ -171,6 +176,10 @@ void printInfo1(GtkComboBox* combobox,GtkLabel* label){
     strcat(tempS," ");
   }
   strcat(tempS,"\n");
+  clock_t end=clock();
+  char tempTemp[50];
+  sprintf(tempTemp,"Execution time %lf seconds",(double)(end-start)/CLOCKS_PER_SEC);
+  strcat(tempS,tempTemp);
   gtk_label_set_markup(label,tempS);
 }
 
@@ -178,6 +187,7 @@ void printInfo1(GtkComboBox* combobox,GtkLabel* label){
 // Work with JRB line and Graph graph;
 // State 2
 void printdata2(GtkWidget* box,GtkWidget* text){
+  clock_t start=clock();
   gchar* textID=gtk_combo_box_get_active_id(box);
   int i;
   gchar* textName=gtk_combo_box_text_get_active_text(box);
@@ -191,9 +201,14 @@ void printdata2(GtkWidget* box,GtkWidget* text){
     strcat(displayText,"\t+ ");
     strcat(displayText,name);
   }
+  clock_t end=clock();
+  char tempTemp[50];
+  sprintf(tempTemp,"Execution time %lf seconds",(double)(end-start)/CLOCKS_PER_SEC);
+  strcat(displayText,tempTemp);
   gtk_label_set_markup(text,displayText);
 }
 void searchData2(GtkEntry* entry,GtkComboBox* combobox){
+  clock_t start=clock();
   gchar* text=gtk_entry_get_text(entry);
   JRB temp;
   if(line==NULL) line=read_lineNameANDroute();
@@ -214,6 +229,8 @@ void searchData2(GtkEntry* entry,GtkComboBox* combobox){
     free(findString);
   }
   free(tempS);
+  clock_t end=clock();
+  printf("Search in State2 %lf seconds",(double)(end-start)/CLOCKS_PER_SEC);
 }
 //
 //
@@ -222,6 +239,7 @@ extern char srcID[15];
 extern char desID[15];
 
 void searchForInfo3(GtkWidget* entry,GtkComboBox* combobox){
+  clock_t start=clock();
   gchar* text=gtk_entry_get_text(entry);
   int i;
   gtk_combo_box_text_remove_all(combobox);
@@ -241,6 +259,8 @@ void searchForInfo3(GtkWidget* entry,GtkComboBox* combobox){
     free(findString);
   }
   free(tempString);
+  clock_t end=clock();
+  printf("Search in State3 %lf seconds",(double)(end-start)/CLOCKS_PER_SEC);
 }
 
 void srcBoxChange(GtkWidget* box){
