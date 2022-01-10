@@ -39,8 +39,8 @@ state3.o: GUI/state3.c
 DirectedGraph.o: Graph/DirectedGraph.c
 	${CC} ${GTKFLAGS} -c Graph/DirectedGraph.c -w
 
-state_ults.o: Path/state_ults.c
-	${CC} ${GTKFLAGS} -c Path/state_ults.c -w ${GTKLIBS}
+state_ults.o: StateFunctions/state_ults.c
+	${CC} ${GTKFLAGS} -c StateFunctions/state_ults.c -w ${GTKLIBS}
 
 clean:
 	rm -f *.exe *~ *.o

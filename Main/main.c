@@ -4,7 +4,7 @@
 #include "../GUI/state1.h"
 #include "../GUI/state2.h"
 #include "../GUI/state3.h"
-#include "../Path/state_ults.h"
+#include "../StateFunctions/state_ults.h"
 
 GtkWidget *window=NULL;
 GtkWidget *state1=NULL;
