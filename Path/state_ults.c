@@ -155,7 +155,7 @@ void searchForInfo1(GtkWidget* entry,GtkComboBox* combobox){
   }
   free(tempString);
   clock_t end=clock();
-  printf("Search in State1 %lf seconds",(double)(end-start)/CLOCKS_PER_SEC);
+  printf("Search in State1 %lf seconds\n",(double)(end-start)/CLOCKS_PER_SEC);
 }
 void printInfo1(GtkComboBox* combobox,GtkLabel* label){
   clock_t start=clock();
@@ -230,7 +230,7 @@ void searchData2(GtkEntry* entry,GtkComboBox* combobox){
   }
   free(tempS);
   clock_t end=clock();
-  printf("Search in State2 %lf seconds",(double)(end-start)/CLOCKS_PER_SEC);
+  printf("Search in State2 %lf seconds\n",(double)(end-start)/CLOCKS_PER_SEC);
 }
 //
 //
@@ -260,7 +260,7 @@ void searchForInfo3(GtkWidget* entry,GtkComboBox* combobox){
   }
   free(tempString);
   clock_t end=clock();
-  printf("Search in State3 %lf seconds",(double)(end-start)/CLOCKS_PER_SEC);
+  printf("Search in State3 %lf seconds\n",(double)(end-start)/CLOCKS_PER_SEC);
 }
 
 void srcBoxChange(GtkWidget* box){

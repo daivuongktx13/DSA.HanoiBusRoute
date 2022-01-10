@@ -43,7 +43,6 @@ JRB read_lineNameANDroute(){
     for(i=0;i<n;i++){
         jrb_insert_str(newtree,routeID[i],new_jval_v(&newroute[i]));
     }     
-    printf("Finished Read JRB 1\n");
     fclose(fi1);
     fclose(fi2);
     clock_t end=clock();
@@ -84,7 +83,6 @@ Graph read_graph(){
         fgets(b,500,fi1);
         addVertex(newgraph,strdup(a),strdup(b));
     }
-    printf("Finish part 1 Read Graph!\n");
     fscanf(fi2,"%d%*c",&n2);
     for(i=0;i<n2;i++){
         char temp;
@@ -101,7 +99,6 @@ Graph read_graph(){
         temp=fgetc(fi2);
         addEdge(newgraph,strdup(c),strdup(d),road);
     }
-    printf("Finish part 2 Read Graph!\n");
     fscanf(fi3,"%d%*c",&n3);
     for(i=0;i<n3;i++){
         Road *road=initRoad();
@@ -115,7 +112,6 @@ Graph read_graph(){
         Road* tempFind=getEdgeValue(newgraph,c,d);
         if(tempFind==NULL) addEdge(newgraph,strdup(c),strdup(d),road);
     }
-    printf("Finish part 3 Read Graph!\n");
     clock_t end=clock();
     double time=(double)(end-start)/CLOCKS_PER_SEC;
     printf("Time need to read Graph: %.2lf seconds\n",time);
@@ -142,7 +138,6 @@ JRB read_busStop_Routes(){
         }
         jrb_insert_str(newtree,strdup(a),new_jval_v(&newBS[i]));
     }
-    printf("Finished Read JRB 2\n");
     clock_t end=clock();
     double time=(double)(end-start)/CLOCKS_PER_SEC;
     printf("Time need to read JRB 2: %.2lf seconds\n",time);
