@@ -14,7 +14,7 @@ void on_activate (GtkApplication *app){
     prevWindow=(GtkWidget*)list->data;
   }
   window = gtk_application_window_new (app);
-  gtk_window_set_default_size(GTK_WINDOW(window),800,600);
+  gtk_window_set_default_size(GTK_WINDOW(window),1000,800);
   // GtkWidget *textView= gtk_text_view_new_with_buffer(gtk_text_buffer_new(NULL));
   GtkWidget *button1 = gtk_button_new_with_label ("In ra các xe buýt đi qua 1 bến");
   GtkWidget *button2 = gtk_button_new_with_label ("In ra các bến của 1 tuyến xe buýt");

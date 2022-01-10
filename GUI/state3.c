@@ -16,7 +16,7 @@ void changeToState3(GtkApplication *app){
   strcpy(srcID,"");
   strcpy(desID,"");
   state3 = gtk_application_window_new (app);
-  gtk_window_set_default_size(GTK_WINDOW(state3),1200,600);
+  gtk_window_set_default_size(GTK_WINDOW(state3),1200,800);
   GtkWidget* backButton=gtk_button_new_with_label("Back");
   GtkWidget* text=gtk_label_new("Tìm đường di chuyển ngắn nhất giữa 2 bến xe buýt");
   GtkWidget *container=gtk_vbox_new(TRUE,5);
@@ -57,9 +57,9 @@ void changeToState3(GtkApplication *app){
   GtkWidget* flowTemp1=gtk_flow_box_new();
   GtkWidget* flowTemp2=gtk_flow_box_new();
   GtkButton* buttonStart=gtk_button_new_with_label("Find Route!");
-  gtk_box_pack_start(GTK_BOX(boxTemp),flowTemp1,TRUE,TRUE,0);
+  gtk_box_pack_start(GTK_BOX(boxTemp),flowTemp1,TRUE,FALSE,0);
   gtk_box_pack_start(GTK_BOX(boxTemp),buttonStart,FALSE,FALSE,0);
-  gtk_box_pack_start(GTK_BOX(boxTemp),flowTemp2,TRUE,TRUE,0);
+  gtk_box_pack_start(GTK_BOX(boxTemp),flowTemp2,TRUE,FALSE,0);
   gtk_box_pack_start(GTK_BOX(container),boxTemp,TRUE,FALSE,0);
   //Scroll view for representation of data
   GtkWidget *scrollView=gtk_scrolled_window_new(NULL,NULL);

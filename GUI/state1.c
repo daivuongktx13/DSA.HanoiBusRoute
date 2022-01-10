@@ -12,18 +12,19 @@ extern void printInfo1(GtkComboBox* combobox,GtkLabel* label);
 //In ra các xe buýt đi qua 1 bến
 void changeToState1(GtkApplication *app){
   state1 = gtk_application_window_new (app);
-  gtk_window_set_default_size(GTK_WINDOW(state1),800,600);
+  gtk_window_set_default_size(GTK_WINDOW(state1),1000,800);
   //Back button
   GtkWidget* backButton=gtk_button_new_with_label("Back");
   //Text In ra các xe buýt đi qua 1 bến
-  GtkWidget* text=gtk_label_new("In ra các xe buýt đi qua 1 bến");
+  GtkWidget* text=gtk_label_new("");
+  gtk_label_set_markup(text,"<b>In ra các xe buýt đi qua 1 bến</b>");
   GtkWidget* seperator=gtk_hseparator_new();
   //Big container
   GtkWidget *container=gtk_vbox_new(TRUE,5);
   gtk_container_add(GTK_CONTAINER(state1),container);
   gtk_box_pack_start(GTK_BOX(container),backButton,TRUE,TRUE,5);
-  gtk_box_pack_start(GTK_BOX(container),text,TRUE,TRUE,5);
-  gtk_box_pack_start(GTK_BOX(container),seperator,TRUE,FALSE,10);
+  gtk_box_pack_start(GTK_BOX(container),text,FALSE,FALSE,0);
+  gtk_box_pack_start(GTK_BOX(container),seperator,FALSE,FALSE,0);
   g_signal_connect_swapped(backButton,"clicked",G_CALLBACK(on_activate),app);
   //Small container
   GtkWidget *containerSearch=gtk_box_new(GTK_ORIENTATION_HORIZONTAL,5);
@@ -31,7 +32,7 @@ void changeToState1(GtkApplication *app){
   GtkWidget* entryState1=gtk_entry_new();
   GtkWidget* buttonSearch=gtk_button_new_with_label("Search!");
   gtk_box_pack_start(GTK_BOX(containerSearch),textSearch,FALSE,FALSE,5);
-  gtk_box_pack_end(GTK_BOX(containerSearch),entryState1,TRUE,TRUE,5);
+  gtk_box_pack_start(GTK_BOX(containerSearch),entryState1,TRUE,TRUE,5);
   //Add small containter
   gtk_box_pack_start(GTK_BOX(container),containerSearch,FALSE,FALSE,0);
   //Combo Box Data

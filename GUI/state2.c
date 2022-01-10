@@ -11,9 +11,10 @@ extern void searchData2(GtkEntry* entry,GtkComboBox* combobox);
 
 void changeToState2(GtkApplication *app){
   state2 = gtk_application_window_new (app);
-  gtk_window_set_default_size(GTK_WINDOW(state2),800,600);
+  gtk_window_set_default_size(GTK_WINDOW(state2),1000,800);
   GtkWidget* backButton=gtk_button_new_with_label("Back");
-  GtkWidget* text=gtk_label_new("In ra các bến của 1 tuyến xe buýt");
+  GtkWidget* text=gtk_label_new("");
+  gtk_label_set_markup(text,"In ra các bến của 1 tuyến xe buýt");
   GtkWidget* box=gtk_combo_box_text_new();
   GtkWidget *container=gtk_vbox_new(TRUE,5);
   //Container search
@@ -28,7 +29,7 @@ void changeToState2(GtkApplication *app){
   GtkWidget *scrollView=gtk_scrolled_window_new(NULL,NULL);
   gtk_container_add(GTK_CONTAINER(state2),container);
   gtk_box_pack_start(GTK_BOX(container),backButton,TRUE,TRUE,5);
-  gtk_box_pack_start(GTK_BOX(container),text,TRUE,TRUE,5);
+  gtk_box_pack_start(GTK_BOX(container),text,FALSE,FALSE,5);
   gtk_box_pack_start(GTK_BOX(container),containerSearch,FALSE,FALSE,0);
   gtk_box_pack_start(GTK_BOX(container),box,TRUE,TRUE,5);
   gtk_box_pack_start(GTK_BOX(container),scrollView,TRUE,TRUE,5);
