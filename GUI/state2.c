@@ -14,7 +14,7 @@ void changeToState2(GtkApplication *app){
   gtk_window_set_default_size(GTK_WINDOW(state2),1000,800);
   GtkWidget* backButton=gtk_button_new_with_label("Back");
   GtkWidget* text=gtk_label_new("");
-  gtk_label_set_markup(text,"In ra các bến của 1 tuyến xe buýt");
+  gtk_label_set_markup(text,"<b>In ra các bến của 1 tuyến xe buýt</b>");
   GtkWidget* box=gtk_combo_box_text_new();
   GtkWidget *container=gtk_vbox_new(TRUE,5);
   //Container search

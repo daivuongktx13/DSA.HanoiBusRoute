@@ -18,7 +18,8 @@ void changeToState3(GtkApplication *app){
   state3 = gtk_application_window_new (app);
   gtk_window_set_default_size(GTK_WINDOW(state3),1200,800);
   GtkWidget* backButton=gtk_button_new_with_label("Back");
-  GtkWidget* text=gtk_label_new("Tìm đường di chuyển ngắn nhất giữa 2 bến xe buýt");
+  GtkWidget* text=gtk_label_new("");
+  gtk_label_set_markup(text,"<b>Tìm đường di chuyển ngắn nhất giữa 2 bến xe buýt</b>");
   GtkWidget *container=gtk_vbox_new(TRUE,5);
   gtk_container_add(state3,container);
   g_signal_connect_swapped(backButton,"clicked",G_CALLBACK(on_activate),app);
