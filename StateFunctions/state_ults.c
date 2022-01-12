@@ -111,8 +111,8 @@ char* getMinimumTour(Graph graph,JRB line,char* src,char* des){
             char* ver2Name=getVertex(graph,minroad[indexMax].ver2);
             char* ver2Name_t=strdup(ver2Name);
             ver2Name_t[strlen(ver2Name_t)-1]='\0';
-            sprintf(tempConcat,"\t+ <b>%s</b> --> <b>%s</b> đi chuyến <b>%s</b>. Khoảng cách: <b>%.lf</b> mét\n",
-                  ver1Name_t,ver2Name_t,busMax,disTemp*6);
+            sprintf(tempConcat,"\t+ <b>%s(%s)</b> --> <b>%s</b>(%s) đi chuyến <b>%s</b>. Khoảng cách: <b>%.lf</b> mét\n",
+                  ver1Name_t,minroad[currentIndex].ver1,ver2Name_t,minroad[indexMax].ver2,busMax,disTemp*6);
             strcat(minRoute,tempConcat);
             printf("%s %s: %s\n",minroad[currentIndex].ver1,minroad[indexMax].ver2,busMax);
             currentIndex=indexMax+1;
@@ -128,8 +128,8 @@ char* getMinimumTour(Graph graph,JRB line,char* src,char* des){
             char* ver2Name=getVertex(graph,minroad[indexMax].ver2);
             char* ver2Name_t=strdup(ver2Name);
             ver2Name_t[strlen(ver2Name_t)-1]='\0';
-            sprintf(tempConcat,"\t+ <b>%s</b> --> <b>%s</b> đi bộ. Khoảng cách: <b>%.lf</b> mét\n",
-                  ver1Name_t,ver2Name_t,disTemp*1.3);
+            sprintf(tempConcat,"\t+ <b>%s</b>(%s) --> <b>%s</b>(%s) đi bộ. Khoảng cách: <b>%.lf</b> mét\n",
+                  ver1Name_t,minroad[currentIndex].ver1,ver2Name_t,minroad[indexMax].ver2,disTemp*1.3);
             strcat(minRoute,tempConcat);
             printf("%s %s: Walking\n",minroad[currentIndex].ver1,minroad[currentIndex].ver2);
             currentIndex++;
